@@ -20,7 +20,7 @@ const BottomNav = () => {
         </div>
       </div>
 
-      <div class="flex justify-around items-center mt-8 pt-4 border-t border-blue-900">
+      <div class="flex justify-around items-center mt-8 pt-4 border-t border-first">
         <div class="flex flex-col items-center">
           <svg class="w-6 h-6 mb-1" fill="white" viewBox="0 0 24 24">
             <path d="M4 17v2h16v-2H4zm1-5v2h14v-2H5zm3-5v2h8V7H8z" />
