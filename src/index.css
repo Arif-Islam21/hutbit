@@ -12,6 +12,8 @@
   --color-seventh: #3c979f;
   --color-eight: #2c7c83;
   --color-ninth: #0c586e;
+  --color-button-bg: #092457;
+  --color-button-bg-hover: #1959d0;
 }
 
 html {

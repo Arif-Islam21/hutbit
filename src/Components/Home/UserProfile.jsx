@@ -1,14 +1,16 @@
+import image from "../../assets/pictures/profile.jpg";
+
 const UserProfile = () => {
   return (
     <div className="px-12 py-4 flex items-center gap-4">
       <div className="avatar">
         <div className="w-16 rounded-full">
-          <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+          <img src={image} />
         </div>
       </div>
       <div>
-        <h2>Name</h2>
-        <h4>Title</h4>
+        <h2>Joh john</h2>
+        <h4>ID- 453927</h4>
       </div>
     </div>
   );
