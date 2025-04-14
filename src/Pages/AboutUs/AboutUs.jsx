@@ -3,6 +3,7 @@ import bit from "../../assets/pictures/services/bit.png";
 import usdc from "../../assets/pictures/services/usdc.png";
 import doge from "../../assets/pictures/services/doge.png";
 import bank from "../../assets/pictures/services/bank.png";
+import Footer from "../../Components/Shared/Footer";
 
 const AboutUs = () => {
   const cardData = [
@@ -78,6 +79,7 @@ const AboutUs = () => {
           <img src={bank} alt="bank photo" />
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

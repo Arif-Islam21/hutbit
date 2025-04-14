@@ -8,6 +8,7 @@ import SignUp from "../Pages/Authentication/SignUp";
 import EmailVerification from "../Pages/Authentication/EmailVerification";
 import PasswordReset from "../Pages/Authentication/PasswordReset";
 import AboutUs from "../Pages/AboutUs/AboutUs";
+import Boost from "../Pages/Boost/Boost";
 
 const HomeRoutes = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const HomeRoutes = createBrowserRouter([
       {
         path: "/about-us",
         element: <AboutUs />,
+      },
+      {
+        path: "/boost",
+        element: <Boost />,
       },
     ],
   },

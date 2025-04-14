@@ -3,6 +3,18 @@ import { HiMenuAlt4, HiX } from "react-icons/hi";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const links = [
+    { label: "Home", href: "/" },
+    { label: "Profile", href: "/profile" },
+    { label: "Group", href: "/group" },
+    { label: "Boost", href: "/boost" },
+    { label: "Profit", href: "/profit" },
+    { label: "Wallet", href: "/wallet" },
+    { label: "Support", href: "/support" },
+    { label: "About Us", href: "/about-us" },
+    { label: "Sign In", href: "/login" },
+  ];
+
   return (
     <div className="navbar">
       <div className="navbar-start"></div>
@@ -23,7 +35,7 @@ const Navbar = () => {
 
       {/* Full-width Dropdown */}
       {open && (
-        <div className="fixed inset-0 z-50 bg-black/70 p-4 flex flex-col items-start">
+        <div className="fixed lg:max-w-md mx-auto inset-0 z-50 bg-black/70 p-4 flex flex-col items-start">
           <button
             onClick={() => setOpen(false)}
             className="text-white text-3xl self-end mb-4"
@@ -31,33 +43,16 @@ const Navbar = () => {
             <HiX />
           </button>
           <ul className="menu text-white w-full space-y-2">
-            <li>
-              <a>Home</a>
-            </li>
-            <li>
-              <a>Profile</a>
-            </li>
-            <li>
-              <a>Group</a>
-            </li>
-            <li>
-              <a>Boost</a>
-            </li>
-            <li>
-              <a>Profit</a>
-            </li>
-            <li>
-              <a>Wallet</a>
-            </li>
-            <li>
-              <a>Support</a>
-            </li>
-            <li>
-              <a>About Us</a>
-            </li>
-            <li>
-              <a>Sign Out</a>
-            </li>
+            {links.map((link, index) => (
+              <li key={index} className="w-full">
+                <a
+                  href={link.href}
+                  className="block p-2 rounded hover:bg-gray-700 transition duration-200"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       )}
