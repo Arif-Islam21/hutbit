@@ -3,12 +3,11 @@ import Navbar from "../Components/Shared/Navbar";
 
 const MainLayout = () => {
   return (
-    <div className="bg-gradient-to-b from-first to-second text-white min-h-screen">
+    <div className="lg:max-w-md mx-auto bg-gradient-to-b from-first to-second text-white min-h-screen">
       <Navbar />
       <div className="container mx-auto min-h-[calc(100vh-55px)]">
         <Outlet />
       </div>
-      <h2>Content goes here</h2>
     </div>
   );
 };
