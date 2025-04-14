@@ -1,27 +1,7 @@
-import {
-  motion,
-  useMotionValue,
-  useTransform,
-  useSpring,
-  AnimatePresence,
-} from "framer-motion";
 import { useEffect, useState } from "react";
+import "./Boost.css";
 
 const BoostTwo = () => {
-  const [phase, setPhase] = useState(0);
-  const leftBallY = useMotionValue(0);
-  const rightBallY = useMotionValue(0);
-  const centerBallY = useMotionValue(0);
-
-  // Spring versions for smoother animation
-  const smoothLeftY = useSpring(leftBallY, { stiffness: 200, damping: 20 });
-  const smoothRightY = useSpring(rightBallY, { stiffness: 200, damping: 20 });
-  const smoothCenterY = useSpring(centerBallY, { stiffness: 200, damping: 20 });
-
-  // X positions to make balls follow the Y shape
-  const leftBallX = useTransform(smoothLeftY, [0, 100], [0, 0]);
-  const rightBallX = useTransform(smoothRightY, [0, 100], [0, 0]);
-
   const stages = [
     { stage: "Stage 1", percentage: "10%", amount: "$250/$500" },
     { stage: "Stage 2", percentage: "20%", amount: "$250/$2500" },
@@ -29,49 +9,66 @@ const BoostTwo = () => {
     { stage: "Stage 4", percentage: "40%", amount: "$250/$10000" },
   ];
 
+  const [currentStage, setCurrentStage] = useState(0);
+  const [showStemDot, setShowStemDot] = useState(false);
+  const [hideArmDots, setHideArmDots] = useState(false);
+
   useEffect(() => {
-    const sequence = async () => {
-      // Phase 1: Balls come down the arms
-      setPhase(1);
-      leftBallY.set(100);
-      rightBallY.set(100);
+    const mergeTime = 2000;
 
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+    const mergeTimeout = setTimeout(() => {
+      setHideArmDots(true);
+      setShowStemDot(true);
+    }, mergeTime); // after arm animation completes
 
-      // Phase 2: Center ball comes down the stem
-      setPhase(2);
-      centerBallY.set(300);
-    };
-
-    sequence();
+    const stageInterval = setInterval(() => {
+      setCurrentStage((prev) => {
+        if (showStemDot && prev < stages.length) return prev + 1;
+        return prev;
+      });
+    }, 1000);
 
     return () => {
-      // Cleanup
-      leftBallY.set(0);
-      rightBallY.set(0);
-      centerBallY.set(0);
+      clearTimeout(mergeTimeout);
+      clearInterval(stageInterval);
     };
-  }, []);
+  }, [showStemDot, stages.length]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-first to-second flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-b from-[#00323d] to-[#140B27] flex items-center justify-center p-4">
       <div className="relative w-64 h-[500px] flex items-center justify-center">
-        {/* Left Arm of Y */}
-        <motion.div className="absolute top-0 left-1/2 w-8 h-40 bg-gray-300 origin-bottom-left rotate-[-45deg] rounded-full" />
+        {/* Left Arm */}
+        <div
+          className={`absolute top-0 left-1/2 w-8 h-40 origin-bottom-left rotate-[-45deg] rounded-full transition-colors duration-1000 ${
+            hideArmDots ? "bg-teal-800" : "bg-gray-300"
+          }`}
+        />
+        {/* Right Arm */}
+        <div
+          className={`absolute top-0 right-1/2 w-8 h-40 origin-bottom-right rotate-[45deg] rounded-full transition-colors duration-1000 ${
+            hideArmDots ? "bg-teal-800" : "bg-gray-300"
+          }`}
+        />
+        {/* Stem */}
+        <div
+          className={`absolute top-36 w-8 h-[70%] rounded-full z-10 transition-colors duration-1000 ${
+            currentStage > 0 ? "bg-teal-800" : "bg-gray-300"
+          }`}
+        />
 
-        {/* Right Arm of Y */}
-        <motion.div className="absolute top-0 right-1/2 w-8 h-40 bg-gray-300 origin-bottom-right rotate-[45deg] rounded-full" />
-
-        {/* Stem of Y */}
-        <motion.div className="absolute top-40 rounded-t-none w-8 h-[70%] bg-gray-300 rounded-full z-10" />
-
-        {/* Stage Items */}
+        {/* Stage Labels */}
         <div className="absolute top-40 h-[70%] left-1/2 transform -translate-x-[47%] -translate-y-[30px] w-full text-white z-20">
           <div className="flex flex-col h-full justify-between items-center gap-6 mt-2">
             {stages.map((item, index) => (
               <div key={index} className="flex items-center gap-4">
                 <p className="text-xs w-20 text-right">{item.stage}</p>
-                <div className="size-8 rounded-full bg-white text-black flex items-center justify-center font-bold shadow-md">
+                <div
+                  className={`size-8 rounded-full flex items-center justify-center font-bold shadow-md transition-all duration-300 ${
+                    index < currentStage
+                      ? "bg-yellow-400 text-black"
+                      : "bg-white text-black"
+                  }`}
+                >
                   <p>{item.percentage}</p>
                 </div>
                 <p className="text-xs w-24 text-left">{item.amount}</p>
@@ -80,42 +77,16 @@ const BoostTwo = () => {
           </div>
         </div>
 
-        {/* Left Ball */}
-        <motion.div
-          className="absolute top-0 left-1/2 size-8 bg-pink-300 rounded-full z-20 shadow-lg"
-          style={{
-            y: smoothLeftY,
-            x: useTransform(smoothLeftY, [0, 100], [-40, 0]),
-          }}
-          animate={{
-            opacity: phase === 1 ? 1 : 0,
-          }}
-        />
+        {/* Balls on arms */}
+        {!hideArmDots && <div className="absolute ball-left z-30" />}
+        {!hideArmDots && <div className="absolute ball-right z-30" />}
 
-        {/* Right Ball */}
-        <motion.div
-          className="absolute top-0 right-1/2 size-8 bg-blue-300 rounded-full z-20 shadow-lg"
-          style={{
-            y: smoothRightY,
-            x: useTransform(smoothRightY, [0, 100], [40, 0]),
-          }}
-          animate={{
-            opacity: phase === 1 ? 1 : 0,
-          }}
-        />
-
-        {/* Center Ball */}
-        <motion.div
-          className="absolute top-40 left-1/2 size-8 bg-purple-500 rounded-full z-20 shadow-lg"
-          style={{
-            y: smoothCenterY,
-            x: useTransform(smoothCenterY, [0, 300], [0, 0]),
-          }}
-          animate={{
-            opacity: phase === 2 ? 1 : 0,
-          }}
-          initial={{ opacity: 0 }}
-        />
+        {/* Stem animation ball */}
+        {showStemDot && (
+          <div
+            className={`absolute dot-animation stage-${currentStage} z-30`}
+          />
+        )}
       </div>
     </div>
   );

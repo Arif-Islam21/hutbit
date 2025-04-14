@@ -1,0 +1,79 @@
+@keyframes moveLeftArm {
+  0% {
+    top: 0px;
+    left: calc(50% - 110px); /* left tip of Y */
+    transform: translate(0, 0);
+  }
+  100% {
+    top: 130px;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes moveRightArm {
+  0% {
+    top: 0px;
+    left: calc(50% + 110px); /* right tip of Y */
+    transform: translate(0, 0);
+  }
+  100% {
+    top: 130px;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes moveDotDown {
+  0% {
+    top: 130px;
+    transform: translateX(-50%);
+  }
+  100% {
+    top: calc(100% - 40px);
+    transform: translateX(-50%);
+  }
+}
+
+.ball-left,
+.ball-right,
+.dot-animation {
+  width: 32px;
+  height: 32px;
+  background-color: #f9a8d4;
+  border-radius: 9999px;
+  position: absolute;
+}
+
+/* Arm ball animations */
+.ball-left {
+  animation: moveLeftArm 2s ease-in forwards;
+}
+
+.ball-right {
+  animation: moveRightArm 2s ease-in forwards;
+}
+
+/* Falling stem ball */
+.dot-animation {
+  left: 50%;
+  transform: translateX(-50%);
+  animation: moveDotDown 4s linear forwards;
+}
+
+/* Stage stops */
+.stage-0 {
+  top: 130px;
+}
+.stage-1 {
+  top: 180px;
+}
+.stage-2 {
+  top: 260px;
+}
+.stage-3 {
+  top: 340px;
+}
+.stage-4 {
+  top: 420px;
+}
