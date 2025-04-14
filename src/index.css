@@ -16,6 +16,31 @@
   --color-button-bg-hover: #1959d0;
 }
 
+@keyframes text-glow-vertical {
+  0% {
+    background-position: top;
+  }
+  100% {
+    background-position: bottom;
+  }
+}
+
+.animate-text-glow {
+  background: linear-gradient(
+    to bottom,
+    #989410,
+    rgb(56, 13, 214),
+    #004dff,
+    #00ffe1
+  );
+  background-size: 100% 300%;
+  background-repeat: no-repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: text-glow-vertical 3s ease-in-out infinite alternate;
+}
+
 html {
   font-family: "Roboto", sans-serif;
 }
