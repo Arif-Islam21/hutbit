@@ -32,7 +32,7 @@ const SignUp = () => {
                 type="email"
                 className="input w-full bg-transparent text-white placeholder:text-gray-400 pr-10"
               />
-              <span className="absolute right-3 top-1/2 text-blue-400 transform -translate-y-1/2 text-sm">
+              <span className="absolute right-3 top-1/2 text-blue-400 transform -translate-y-1/2 text-sm cursor-pointer">
                 Get Code
               </span>
             </div>

@@ -5,6 +5,8 @@ import Home from "../Pages/Home/Home";
 import Loading from "../Components/Shared/Loading";
 import Login from "../Pages/Authentication/Login";
 import SignUp from "../Pages/Authentication/SignUp";
+import EmailVerification from "../Pages/Authentication/EmailVerification";
+import PasswordReset from "../Pages/Authentication/PasswordReset";
 
 const HomeRoutes = createBrowserRouter([
   {
@@ -28,6 +30,14 @@ const HomeRoutes = createBrowserRouter([
   {
     path: "/sign-up",
     element: <SignUp />,
+  },
+  {
+    path: "/email-verify",
+    element: <EmailVerification />,
+  },
+  {
+    path: "/password-reset",
+    element: <PasswordReset />,
   },
 ]);
 
