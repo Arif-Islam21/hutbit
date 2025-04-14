@@ -42,7 +42,7 @@ const BoostTwo = () => {
           className={`absolute top-0 left-1/2 w-8 h-40 origin-bottom-left rotate-[-45deg] rounded-full transition-colors duration-1000 ${
             hideArmDots ? "bg-teal-800" : "bg-gray-300"
           }`}
-        />
+        ></div>
         {/* Right Arm */}
         <div
           className={`absolute top-0 right-1/2 w-8 h-40 origin-bottom-right rotate-[45deg] rounded-full transition-colors duration-1000 ${
