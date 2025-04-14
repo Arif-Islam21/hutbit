@@ -8,7 +8,6 @@ const Navbar = () => {
     { label: "Profile", href: "/profile" },
     { label: "Group", href: "/group" },
     { label: "Boost", href: "/boost" },
-    { label: "Boost Deep", href: "/boost-two" },
     { label: "Profit", href: "/profit" },
     { label: "Wallet", href: "/wallet" },
     { label: "Support", href: "/support" },

@@ -1,4 +1,5 @@
 import { FaEye } from "react-icons/fa";
+import { Link } from "react-router";
 
 const EmailVerification = () => {
   return (
@@ -15,9 +16,12 @@ const EmailVerification = () => {
                 placeholder="Enter Your email address"
                 className="input w-full bg-transparent text-white placeholder:text-gray-400 pr-10"
               />
-              <span className="absolute right-3 top-1/2 text-blue-400 transform -translate-y-1/2 text-sm cursor-pointer">
+              <Link
+                to="/email-verify"
+                className="absolute right-3 top-1/2 text-blue-400 transform -translate-y-1/2 text-sm cursor-pointer"
+              >
                 Get Code
-              </span>
+              </Link>
             </div>
           </div>
 

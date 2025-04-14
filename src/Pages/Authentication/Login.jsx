@@ -1,4 +1,5 @@
 import { FaEye } from "react-icons/fa";
+import { Link } from "react-router";
 
 const Login = () => {
   return (
@@ -38,12 +39,15 @@ const Login = () => {
             </div>
             <div className="flex justify-end items-center my-2 ">
               <label className="label justify-end ">
-                <a
+                <Link
+                  to="/password-reset"
                   href="#"
-                  className="label-text-alt text-blue-400 hover:underline ml-auto text-sm"
+                  className="label-text-alt text-blue-400
+                  hover:underline ml-auto text-sm"
                 >
+                  {" "}
                   Forgot password?
-                </a>
+                </Link>
               </label>
             </div>
           </div>
@@ -52,9 +56,13 @@ const Login = () => {
 
           <p className="mt-4 text-center text-white text-sm">
             Don’t have an account?{" "}
-            <a href="#" className="text-blue-400 hover:underline">
+            <Link
+              to="/sign-up"
+              href="#"
+              className="text-blue-400 hover:underline"
+            >
               Sign up
-            </a>
+            </Link>
           </p>
         </form>
       </div>

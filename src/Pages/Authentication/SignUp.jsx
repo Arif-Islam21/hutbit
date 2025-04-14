@@ -1,6 +1,7 @@
 import { FaEye } from "react-icons/fa";
 import indiaFlag from "../../assets/pictures/indiaFlag.jpg";
 import { IoIosArrowDown } from "react-icons/io";
+import { Link } from "react-router";
 
 const SignUp = () => {
   return (
@@ -32,9 +33,12 @@ const SignUp = () => {
                 type="email"
                 className="input w-full bg-transparent text-white placeholder:text-gray-400 pr-10"
               />
-              <span className="absolute right-3 top-1/2 text-blue-400 transform -translate-y-1/2 text-sm cursor-pointer">
+              <Link
+                to="/email-verify"
+                className="absolute right-3 top-1/2 text-blue-400 transform -translate-y-1/2 text-sm cursor-pointer"
+              >
                 Get Code
-              </span>
+              </Link>
             </div>
           </div>
           <div className="form-control mb-4">
@@ -120,9 +124,13 @@ const SignUp = () => {
 
           <p className="mt-4 text-center text-white text-sm">
             Already have an account?{" "}
-            <a href="#" className="text-blue-400 hover:underline">
+            <Link
+              to="/login"
+              href="#"
+              className="text-blue-400 hover:underline"
+            >
               Login
-            </a>
+            </Link>
           </p>
         </form>
       </div>
