@@ -3,6 +3,8 @@ import { createBrowserRouter } from "react-router";
 import MainLayout from "../Layouts/MainLayout";
 import Home from "../Pages/Home/Home";
 import Loading from "../Components/Shared/Loading";
+import Login from "../Pages/Authentication/Login";
+import SignUp from "../Pages/Authentication/SignUp";
 
 const HomeRoutes = createBrowserRouter([
   {
@@ -18,6 +20,14 @@ const HomeRoutes = createBrowserRouter([
         element: <Loading />,
       },
     ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/sign-up",
+    element: <SignUp />,
   },
 ]);
 
