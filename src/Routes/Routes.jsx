@@ -9,6 +9,7 @@ import EmailVerification from "../Pages/Authentication/EmailVerification";
 import PasswordReset from "../Pages/Authentication/PasswordReset";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import Boost from "../Pages/Boost/Boost";
+import BoostTwo from "../Pages/Boost/BoostTwo";
 
 const HomeRoutes = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const HomeRoutes = createBrowserRouter([
       {
         path: "/boost",
         element: <Boost />,
+      },
+      {
+        path: "/boost-two",
+        element: <BoostTwo />,
       },
     ],
   },

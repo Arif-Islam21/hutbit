@@ -1,6 +1,24 @@
-import { motion } from "framer-motion";
+import {
+  motion,
+  useMotionValue,
+  useTransform,
+  useSpring,
+  useAnimationFrame,
+} from "framer-motion";
+import { useEffect, useState } from "react";
 
 const Boost = () => {
+  const y = useMotionValue(25);
+
+  // Smooth the motion value
+  const smoothY = useSpring(y, { stiffness: 100, damping: 15 });
+
+  // Background color transition from blue to dark as y increases
+  const bgColor = useTransform(
+    smoothY,
+    [0, 120], // from top to joint
+    ["#00323d", "#140B27"]
+  );
   const stages = [
     { stage: "Stage 1", percentage: "10%", amount: "$250/$500" },
     { stage: "Stage 2", percentage: "20%", amount: "$250/$2500" },
@@ -9,10 +27,10 @@ const Boost = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-first to-second flex items-center justify-center p-4">
+    <motion.div className="min-h-screen bg-gradient-to-b from-first to-second flex items-center justify-center p-4">
       <div className="relative w-64 h-[500px] flex items-center justify-center">
         {/* Left Arm of Y */}
-        <div className="absolute top-0 left-1/2 w-8 h-40 bg-gray-300 origin-bottom-left rotate-[-45deg] rounded-full" />
+        <motion.div className="absolute transition-colors duration-1000 top-0 left-1/2 w-8 h-40 bg-gray-300 origin-bottom-left rotate-[-45deg] rounded-full" />
 
         {/* Right Arm of Y */}
         <div className="absolute top-0 right-1/2 w-8 h-40 bg-gray-300 origin-bottom-right rotate-[45deg] rounded-full" />
@@ -39,8 +57,17 @@ const Boost = () => {
             ))}
           </div>
         </div>
+        <motion.div
+          className="absolute top-0 left-1/2 -translate-x-1/2 size-8 bg-pink-300 rounded-full z-20"
+          style={{ x: useTransform(y, [10, 110], [-100, 0]), y }}
+          animate={{ y: 120 }}
+          transition={{ duration: 2, ease: "easeInOut" }}
+        />
+
+        {/* Joint Center Dot */}
+        {/* <div className="absolute top-40 w-4 h-4 bg-white rounded-full z-30" /> */}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
