@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./Boost.css";
+import "./boost.css";
 
 const Boost = () => {
   const stages = [
