@@ -9,7 +9,7 @@ const Navbar = () => {
     { label: "Group", href: "" },
     { label: "Boost", href: "/boost" },
     { label: "Profit", href: "/profit" },
-    { label: "Wallet", href: "" },
+    { label: "Wallet", href: "/wallet" },
     { label: "Support", href: "" },
     { label: "About Us", href: "/about-us" },
     { label: "Sign In", href: "/login" },

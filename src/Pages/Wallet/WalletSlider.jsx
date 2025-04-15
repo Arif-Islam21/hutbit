@@ -5,6 +5,8 @@ import "swiper/css/pagination";
 import "./swiper.css";
 import { Pagination } from "swiper/modules";
 import usdc from "./../../assets/pictures/services/usdc.png";
+import { useState } from "react";
+import RentModal from "../../Components/Modals/RentModal";
 
 export default function MiningSlider() {
   const profitData = [
@@ -12,6 +14,8 @@ export default function MiningSlider() {
     { id: 2, profit: "2800.10 USDT" },
     { id: 3, profit: "1500.00 USDT" },
   ];
+
+  let [isOpen, setIsOpen] = useState(false);
 
   return (
     <Swiper
@@ -28,13 +32,17 @@ export default function MiningSlider() {
               {item.profit}
             </div>
             <div className="flex justify-end gap-3 pt-2">
-              <button className="px-4 py-1 bg-blue-500 text-sm rounded hover:bg-blue-600 transition cursor-pointer">
+              <button
+                onClick={() => setIsOpen(true)}
+                className="px-4 py-1 bg-blue-500 text-sm rounded hover:bg-blue-600 transition cursor-pointer"
+              >
                 Rent Now
               </button>
             </div>
           </div>
         </SwiperSlide>
       ))}
+      <RentModal isOpen={isOpen} setIsOpen={setIsOpen} />
     </Swiper>
   );
 }
