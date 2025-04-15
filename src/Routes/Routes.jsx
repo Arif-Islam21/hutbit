@@ -10,6 +10,7 @@ import PasswordReset from "../Pages/Authentication/PasswordReset";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import Boost from "../Pages/Boost/Boost";
 import Profile from "../Pages/Profile/Profile";
+import Profit from "../Pages/Profite/Profit";
 
 const HomeRoutes = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const HomeRoutes = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile />,
+      },
+      {
+        path: "/profit",
+        element: <Profit />,
       },
     ],
   },
