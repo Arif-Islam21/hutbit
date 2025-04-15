@@ -1,68 +1,112 @@
-import React from "react";
+import { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router";
 import MainLayout from "../Layouts/MainLayout";
-import Home from "../Pages/Home/Home";
 import Loading from "../Components/Shared/Loading";
-import Login from "../Pages/Authentication/Login";
-import SignUp from "../Pages/Authentication/SignUp";
-import EmailVerification from "../Pages/Authentication/EmailVerification";
-import PasswordReset from "../Pages/Authentication/PasswordReset";
-import AboutUs from "../Pages/AboutUs/AboutUs";
-import Boost from "../Pages/Boost/Boost";
-import Profile from "../Pages/Profile/Profile";
-import Profit from "../Pages/Profite/Profit";
-import Wallet from "../Pages/Wallet/Wallet";
+import ErrorPage from "../Components/Shared/ErrorPage";
+
+// Lazy load your components for better performance
+const Home = lazy(() => import("../Pages/Home/Home"));
+const Login = lazy(() => import("../Pages/Authentication/Login"));
+const SignUp = lazy(() => import("../Pages/Authentication/SignUp"));
+const EmailVerification = lazy(() =>
+  import("../Pages/Authentication/EmailVerification")
+);
+const PasswordReset = lazy(() =>
+  import("../Pages/Authentication/PasswordReset")
+);
+const AboutUs = lazy(() => import("../Pages/AboutUs/AboutUs"));
+const Boost = lazy(() => import("../Pages/Boost/Boost"));
+const Profile = lazy(() => import("../Pages/Profile/Profile"));
+const Profit = lazy(() => import("../Pages/Profite/Profit"));
+const Wallet = lazy(() => import("../Pages/Wallet/Wallet"));
 
 const HomeRoutes = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
+    errorElement: <ErrorPage />, // Add error boundary
     children: [
       {
         index: true,
-        element: <Home />,
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Home />
+          </Suspense>
+        ),
       },
       {
-        path: "/loading",
-        element: <Loading />,
+        path: "about-us",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <AboutUs />
+          </Suspense>
+        ),
       },
       {
-        path: "/about-us",
-        element: <AboutUs />,
+        path: "boost",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Boost />
+          </Suspense>
+        ),
       },
       {
-        path: "/boost",
-        element: <Boost />,
+        path: "profile",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Profile />
+          </Suspense>
+        ),
       },
       {
-        path: "/profile",
-        element: <Profile />,
+        path: "profit",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Profit />
+          </Suspense>
+        ),
       },
       {
-        path: "/profit",
-        element: <Profit />,
-      },
-      {
-        path: "/wallet",
-        element: <Wallet />,
+        path: "wallet",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Wallet />
+          </Suspense>
+        ),
       },
     ],
   },
   {
     path: "/login",
-    element: <Login />,
+    element: (
+      <Suspense fallback={<Loading />}>
+        <Login />
+      </Suspense>
+    ),
   },
   {
     path: "/sign-up",
-    element: <SignUp />,
+    element: (
+      <Suspense fallback={<Loading />}>
+        <SignUp />
+      </Suspense>
+    ),
   },
   {
     path: "/email-verify",
-    element: <EmailVerification />,
+    element: (
+      <Suspense fallback={<Loading />}>
+        <EmailVerification />
+      </Suspense>
+    ),
   },
   {
     path: "/password-reset",
-    element: <PasswordReset />,
+    element: (
+      <Suspense fallback={<Loading />}>
+        <PasswordReset />
+      </Suspense>
+    ),
   },
 ]);
 
