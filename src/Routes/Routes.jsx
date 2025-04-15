@@ -11,6 +11,7 @@ import AboutUs from "../Pages/AboutUs/AboutUs";
 import Boost from "../Pages/Boost/Boost";
 import Profile from "../Pages/Profile/Profile";
 import Profit from "../Pages/Profite/Profit";
+import Wallet from "../Pages/Wallet/Wallet";
 
 const HomeRoutes = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const HomeRoutes = createBrowserRouter([
       {
         path: "/profit",
         element: <Profit />,
+      },
+      {
+        path: "/wallet",
+        element: <Wallet />,
       },
     ],
   },

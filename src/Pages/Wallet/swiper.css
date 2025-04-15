@@ -1,0 +1,24 @@
+/* Push pagination dots outside the slider */
+.mining-swiper .swiper-pagination {
+  position: relative;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Style the dots */
+.mining-swiper .swiper-pagination-bullet {
+  background: #5c4e4e;
+  opacity: 1; /* Restore opacity */
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin: 0 4px;
+  transition: all 0.3s ease;
+}
+
+/* Active dot */
+.mining-swiper .swiper-pagination-bullet-active {
+  width: 20px;
+  background: #2563eb; /* Tailwind blue-600 */
+  border-radius: 10px;
+}
