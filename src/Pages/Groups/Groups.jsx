@@ -1,10 +1,67 @@
 import { IoPerson } from "react-icons/io5";
 import { CiFilter } from "react-icons/ci";
+import { MdKeyboardArrowDown } from "react-icons/md";
 
 const Groups = () => {
+  const btnData = [
+    {
+      text: "hm",
+      number: 256,
+    },
+    {
+      text: "mhm",
+      number: 128,
+    },
+    {
+      text: "ghm",
+      number: 64,
+    },
+    {
+      text: "thm",
+      number: 32,
+    },
+    {
+      text: "hhm",
+      number: 16,
+    },
+    {
+      text: "shm",
+      number: 8,
+    },
+    {
+      text: "cmo",
+      number: 4,
+    },
+  ];
+  const hutData = [
+    {
+      text: "hut 1",
+      number: 9456,
+    },
+    {
+      text: "hut 2",
+      number: 9456,
+    },
+    {
+      text: "hut 3",
+      number: 9456,
+    },
+    {
+      text: "hut 4",
+      number: 9456,
+    },
+    {
+      text: "hut 5",
+      number: 9456,
+    },
+    {
+      text: "hut 6",
+      number: 9456,
+    },
+  ];
   return (
     <div className="">
-      <div className="mt-8 mb-3 flex items-center justify-between">
+      <div className="mt-8 mb-3 mx-4 flex items-center justify-between">
         <button className="btn bg-black/70 text-white border-none shadow-none px-6 py-4">
           My Referrer
         </button>
@@ -15,7 +72,7 @@ const Groups = () => {
           Referral Link
         </button>
       </div>
-      <div className="my-6 flex justify-between items-center">
+      <div className="my-6 flex mx-4 justify-between items-center">
         <div className="flex items-center gap-4">
           <h2 className="text-xl font-semibold">Total Miners</h2>
           <h2 className="text-xl font-semibold">5250</h2>
@@ -24,7 +81,7 @@ const Groups = () => {
           <IoPerson size={20} />
         </button>
       </div>
-      <div className="my-6 flex justify-between items-center">
+      <div className="my-6 flex mx-4 justify-between items-center">
         <div className="flex items-center gap-4">
           <h2 className="text-xl font-semibold">Total Business</h2>
           <h2 className="text-xl font-semibold">$4,56,789</h2>
@@ -33,12 +90,50 @@ const Groups = () => {
           <CiFilter size={26} />
         </button>
       </div>
-      <div className="my-4 border-t-4 border-b-4 border-gray-500 py-2">
-        <div className="max-w-fit p-3 ">
-          <h5 className="uppercase text-center">hm</h5>
-          <button className="cursor-pointer font-bold px-4 py-1 rounded-lg bg-button-bg-hover shadow-md shadow-seventh">
-            256
-          </button>
+      <div className="my-4 border-t-4 border-b-4 flex justify-around flex-wrap border-gray-500 py-2">
+        <div className="flex justify-between items-center">
+          {btnData.map((item, index) => {
+            return (
+              <div className="max-w-fit px-3" key={index}>
+                <h5 className="uppercase text-center">{item.text}</h5>
+                <button className="cursor-pointer font-bold px-2 py-1 rounded-lg bg-button-bg-hover shadow-md shadow-seventh">
+                  {item.number}
+                </button>
+                {item.break && <br />}
+              </div>
+            );
+          })}
+        </div>
+        <div className="flex justify-around items-center">
+          {hutData.map((item, index) => {
+            return (
+              <div className="max-w-fit p-2" key={index}>
+                <h5 className="uppercase text-center">{item.text}</h5>
+                <button className="cursor-pointer font-bold px-2 py-1 rounded-lg bg-button-bg-hover shadow-md shadow-seventh">
+                  {item.number}
+                </button>
+                {item.break && <br />}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      <div className="px-8 my-6 py-3 mx-6 flex items-center justify-around bg-gradient-to-b from-[#64A0FA] to-[#1B4262] rounded-4xl">
+        <div className="flex flex-col text-center">
+          <h1 className="text-2xl font-semibold">H1</h1>
+          <p className="text-sm font-light text-[#20C52B]">Active</p>
+        </div>
+        <div className="flex flex-col text-center">
+          <h1 className="text-xl font-semibold">NOAH</h1>
+          <p className="text-xs text-white">ID-786139</p>
+        </div>
+        <div className="flex flex-col text-center">
+          <h1 className="text-2xl font-semibold">$1,05,400</h1>
+        </div>
+        <div className="flex flex-col cursor-pointer text-center">
+          <h1 className="text-4xl font-semibold">
+            <MdKeyboardArrowDown />
+          </h1>
         </div>
       </div>
     </div>

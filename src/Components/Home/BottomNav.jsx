@@ -30,10 +30,13 @@ const BottomNav = () => {
           <FaCoins size={28} />
           <span className="text-sm">Profit</span>
         </Link>
-        <button className="flex flex-col items-center cursor-pointer">
+        <Link
+          to="/groups"
+          className="flex flex-col items-center cursor-pointer"
+        >
           <FaUserGroup size={28} />
           <span className="text-sm">Group</span>
-        </button>
+        </Link>
         <Link to="/boost" className="flex flex-col items-center cursor-pointer">
           <BsLightningChargeFill size={28} />
           <span className="text-sm">Boost</span>
