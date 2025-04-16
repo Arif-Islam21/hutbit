@@ -20,6 +20,7 @@ const Profile = lazy(() => import("../Pages/Profile/Profile"));
 const Profit = lazy(() => import("../Pages/Profite/Profit"));
 const Wallet = lazy(() => import("../Pages/Wallet/Wallet"));
 const Groups = lazy(() => import("../Pages/Groups/Groups"));
+const Support = lazy(() => import("../Pages/Support/Support"));
 
 const HomeRoutes = createBrowserRouter([
   {
@@ -80,6 +81,14 @@ const HomeRoutes = createBrowserRouter([
         element: (
           <Suspense fallback={<Loading />}>
             <Groups />
+          </Suspense>
+        ),
+      },
+      {
+        path: "support",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Support />
           </Suspense>
         ),
       },

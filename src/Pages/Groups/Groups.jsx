@@ -99,7 +99,7 @@ const Groups = () => {
           <CiFilter size={26} />
         </button>
       </div>
-      <div className="my-4 border-t-4 border-b-4 flex justify-around flex-wrap border-gray-500 py-2">
+      <div className="my-4 border-t-4 border-b-4 py-8 flex justify-around flex-wrap border-gray-500">
         <div className="flex flex-wrap gap-4 justify-between items-center">
           {btnData.map((item, index) => {
             return (
