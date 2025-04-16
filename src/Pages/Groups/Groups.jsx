@@ -3,6 +3,7 @@ import { CiFilter } from "react-icons/ci";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { useState } from "react";
 import GroupInfoModal from "../../Components/Modals/GroupInfoModal";
+import GroupFilterModal from "../../Components/Modals/GroupFilterModal";
 
 const Groups = () => {
   const btnData = [
@@ -62,6 +63,7 @@ const Groups = () => {
     },
   ];
   const [isOpen, setIsOpen] = useState(false);
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   return (
     <div className="">
@@ -90,7 +92,10 @@ const Groups = () => {
           <h2 className="text-xl font-semibold">Total Business</h2>
           <h2 className="text-xl font-semibold">$4,56,789</h2>
         </div>
-        <button className="cursor-pointer">
+        <button
+          onClick={() => setIsFilterOpen(!isFilterOpen)}
+          className="cursor-pointer"
+        >
           <CiFilter size={26} />
         </button>
       </div>
@@ -141,6 +146,7 @@ const Groups = () => {
         </div>
       </div>
       <GroupInfoModal isOpen={isOpen} setIsOpen={setIsOpen} />
+      <GroupFilterModal isOpen={isFilterOpen} setIsOpen={setIsFilterOpen} />
     </div>
   );
 };
