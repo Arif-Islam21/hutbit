@@ -67,14 +67,14 @@ const Groups = () => {
 
   return (
     <div className="">
-      <div className="mt-8 mb-3 mx-4 flex items-center justify-between">
-        <button className="btn bg-black/70 text-white border-none shadow-none px-6 py-4">
+      <div className="mt-8 mb-3 flex flex-wrap items-center justify-around space-y-2">
+        <button className="btn bg-black/70 text-white border-none shadow-none  py-3">
           My Referrer
         </button>
-        <button className="btn bg-black/70 text-white border-none shadow-none px-6 py-4">
+        <button className="btn bg-black/70 text-white border-none shadow-none  py-3">
           Referral Code
         </button>
-        <button className="btn bg-black/70 text-white border-none shadow-none px-6 py-4">
+        <button className="btn bg-black/70 text-white border-none shadow-none  py-3">
           Referral Link
         </button>
       </div>
@@ -100,10 +100,10 @@ const Groups = () => {
         </button>
       </div>
       <div className="my-4 border-t-4 border-b-4 flex justify-around flex-wrap border-gray-500 py-2">
-        <div className="flex justify-between items-center">
+        <div className="flex flex-wrap gap-4 justify-between items-center">
           {btnData.map((item, index) => {
             return (
-              <div className="max-w-fit px-3" key={index}>
+              <div className="max-w-fit" key={index}>
                 <h5 className="uppercase text-center">{item.text}</h5>
                 <button className="cursor-pointer font-bold px-2 py-1 rounded-lg bg-button-bg-hover shadow-md shadow-seventh">
                   {item.number}
@@ -113,10 +113,10 @@ const Groups = () => {
             );
           })}
         </div>
-        <div className="flex justify-around items-center">
+        <div className="flex flex-wrap gap-2 justify-around items-center">
           {hutData.map((item, index) => {
             return (
-              <div className="max-w-fit p-2" key={index}>
+              <div className="max-w-fit" key={index}>
                 <h5 className="uppercase text-center">{item.text}</h5>
                 <button className="cursor-pointer font-bold px-2 py-1 rounded-lg bg-button-bg-hover shadow-md shadow-seventh">
                   {item.number}
@@ -127,7 +127,7 @@ const Groups = () => {
           })}
         </div>
       </div>
-      <div className="px-8 my-6 py-3 mx-6 flex items-center justify-around bg-gradient-to-b from-[#64A0FA] to-[#1B4262] rounded-4xl">
+      <div className="px-4 my-6 py-3 mx-3 flex items-center justify-around bg-gradient-to-b from-[#64A0FA] to-[#1B4262] rounded-4xl">
         <div className="flex flex-col text-center">
           <h1 className="text-2xl font-semibold">H1</h1>
           <p className="text-sm font-light text-[#20C52B]">Active</p>
