@@ -6,7 +6,7 @@ const Navbar = () => {
   const links = [
     { label: "Home", href: "/" },
     { label: "Profile", href: "/profile" },
-    { label: "Group", href: "" },
+    { label: "Group", href: "/groups" },
     { label: "Boost", href: "/boost" },
     { label: "Profit", href: "/profit" },
     { label: "Wallet", href: "/wallet" },

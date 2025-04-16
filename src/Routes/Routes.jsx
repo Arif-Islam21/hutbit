@@ -19,6 +19,7 @@ const Boost = lazy(() => import("../Pages/Boost/Boost"));
 const Profile = lazy(() => import("../Pages/Profile/Profile"));
 const Profit = lazy(() => import("../Pages/Profite/Profit"));
 const Wallet = lazy(() => import("../Pages/Wallet/Wallet"));
+const Groups = lazy(() => import("../Pages/Groups/Groups"));
 
 const HomeRoutes = createBrowserRouter([
   {
@@ -71,6 +72,14 @@ const HomeRoutes = createBrowserRouter([
         element: (
           <Suspense fallback={<Loading />}>
             <Wallet />
+          </Suspense>
+        ),
+      },
+      {
+        path: "groups",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Groups />
           </Suspense>
         ),
       },
