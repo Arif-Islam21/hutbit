@@ -1,6 +1,8 @@
 import { IoPerson } from "react-icons/io5";
 import { CiFilter } from "react-icons/ci";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import { useState } from "react";
+import GroupInfoModal from "../../Components/Modals/GroupInfoModal";
 
 const Groups = () => {
   const btnData = [
@@ -59,6 +61,8 @@ const Groups = () => {
       number: 9456,
     },
   ];
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className="">
       <div className="mt-8 mb-3 mx-4 flex items-center justify-between">
@@ -77,7 +81,7 @@ const Groups = () => {
           <h2 className="text-xl font-semibold">Total Miners</h2>
           <h2 className="text-xl font-semibold">5250</h2>
         </div>
-        <button className="cursor-pointer">
+        <button onClick={() => setIsOpen(true)} className="cursor-pointer">
           <IoPerson size={20} />
         </button>
       </div>
@@ -136,6 +140,7 @@ const Groups = () => {
           </h1>
         </div>
       </div>
+      <GroupInfoModal isOpen={isOpen} setIsOpen={setIsOpen} />
     </div>
   );
 };
