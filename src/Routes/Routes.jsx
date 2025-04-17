@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router";
 import MainLayout from "../Layouts/MainLayout";
 import Loading from "../Components/Shared/Loading";
 import ErrorPage from "../Components/Shared/ErrorPage";
+import SupportTickets from "../Pages/Support/SupportTickets";
 
 // Lazy load your components for better performance
 const Home = lazy(() => import("../Pages/Home/Home"));
@@ -21,6 +22,7 @@ const Profit = lazy(() => import("../Pages/Profite/Profit"));
 const Wallet = lazy(() => import("../Pages/Wallet/Wallet"));
 const Groups = lazy(() => import("../Pages/Groups/Groups"));
 const Support = lazy(() => import("../Pages/Support/Support"));
+const SupportTicket = lazy(() => import("../Pages/Support/SupportTickets"));
 
 const HomeRoutes = createBrowserRouter([
   {
@@ -89,6 +91,14 @@ const HomeRoutes = createBrowserRouter([
         element: (
           <Suspense fallback={<Loading />}>
             <Support />
+          </Suspense>
+        ),
+      },
+      {
+        path: "support-ticket",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <SupportTickets />
           </Suspense>
         ),
       },

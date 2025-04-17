@@ -2,11 +2,13 @@ import { FiClipboard } from "react-icons/fi";
 import { IoMailOutline, IoPersonOutline } from "react-icons/io5";
 import { TiPhoneOutline } from "react-icons/ti";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import SupportSuccessModal from "../../Components/Modals/SupportSuccessModal";
+import { useNavigate } from "react-router";
 
 const Support = () => {
   let [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsOpen(true);
@@ -15,6 +17,7 @@ const Support = () => {
   const handleCloseWithDelay = () => {
     setTimeout(() => {
       setIsOpen(false);
+      navigate("/support-ticket");
     }, 2000);
   };
 
