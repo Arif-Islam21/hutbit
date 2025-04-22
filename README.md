@@ -1,6 +1,8 @@
 https://hutbit.vercel.app
 https://hutbit-4k99.vercel.app/ //new file
 
+https://hutbit-4k99.vercel.app/
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
